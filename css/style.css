@@ -401,7 +401,6 @@ body.lock {
 .container {
   max-width: 1350px;
   margin: 0 auto;
-  padding: 0 15px;
 }
 
 .slider {
@@ -451,7 +450,7 @@ body.lock {
   top: 0;
   width: 100%;
   min-height: 100vh;
-  padding: 189px 0 0 110px;
+  padding: 169px 0 0 110px;
 }
 
 .main__wrap {
@@ -561,11 +560,37 @@ body.lock {
   }
 }
 
+@media (max-width: 680px) {
+  .main {
+    padding: 96px 10px 0 10px;
+  }
+  .main__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .main__subtitle {
+    max-width: 390px;
+  }
+  .main__link {
+    display: none;
+  }
+}
+
+@media (max-width: 464px) {
+  .main {
+    padding: 86px 0 0 0;
+  }
+  .main__title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
 .cards {
   position: absolute;
   overflow: hidden;
   width: 100%;
-  bottom: 60px;
+  bottom: 40px;
 }
 
 .cards__wrapper {
@@ -643,5 +668,35 @@ body.lock {
 @media (max-width: 779px) {
   .cards__card {
     height: 96px;
+  }
+}
+
+@media (max-width: 680px) {
+  .cards {
+    bottom: 7px;
+  }
+  .cards__card {
+    margin: 8px 0;
+  }
+  .cards__title {
+    margin: 0 0 7px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .cards {
+    bottom: 15px;
+  }
+  .cards__card {
+    width: 280px;
+    height: 86px;
+    padding: 0px 8px;
+  }
+  .cards__title {
+    font-size: 16px;
+  }
+  .cards__subtitle {
+    font-size: 14px;
+    line-height: 15px;
   }
 }
