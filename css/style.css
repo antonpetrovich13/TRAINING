@@ -507,8 +507,8 @@ body.lock {
   -webkit-animation-duration: 1.8s;
   animation-duration: 1.8s;
   animation-timing-dinction: ease-in;
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
