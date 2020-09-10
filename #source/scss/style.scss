@@ -368,11 +368,30 @@ body.lock{
 		margin: 51px 0 0 0;
 	}
 	&__item {
-		margin: 20px 0 0 0;
+		margin: -1000px 0 0 0;
+		animation-name: run;
+		animation-duration: 1.8s;
+		animation-timing-dinction: ease-in;
+		animation-delay:0.5s;
+		animation-fill-mode: forwards;
 	}
 	&__link {
 	}
 }
+
+@keyframes run {
+	0%{
+		margin: -1000px 0 0 0 ;
+	}
+	50%{
+		margin: 50px 0 0 0;
+	}
+	100%{
+		margin: 25px 0 0 0;
+	}
+}
+
+
 .btn {
 		transition: all 0.3s ease 0s;
 		width: 149px;
