@@ -1,0 +1,480 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap');
+
+// Подключение шрифтов
+@font-face {
+	font-family: 'HelveticaNeueCyr';
+	src: url('../fonts/helveticaneuecyr-light.eot');
+	src: local('☺'), url('../fonts/helveticaneuecyr-light.woff') format('woff'), url('../fonts/helveticaneuecyr-light.ttf') format('truetype'), url('../fonts/helveticaneuecyr-light.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'HelveticaNeueCyr';
+	src: url('../fonts/helveticaneuecyr-roman.eot');
+	src: local('☺'), url('../fonts/helveticaneuecyr-roman.woff') format('woff'), url('../fonts/helveticaneuecyr-roman.ttf') format('truetype'), url('../fonts/helveticaneuecyr-roman.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'HelveticaNeueCyr';
+	src: url('../fonts/helveticaneuecyr-bold.eot');
+	src: local('☺'), url('../fonts/helveticaneuecyr-bold.woff') format('woff'), url('../fonts/helveticaneuecyr-bold.ttf') format('truetype'), url('../fonts/helveticaneuecyr-bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'HelveticaNeueCyr';
+	src: url('../fonts/HelveticaNeueCyr-Black.eot');
+	src: local('☺'), url('../fonts/HelveticaNeueCyr-Black.woff') format('woff'), url('../fonts/HelveticaNeueCyr-Black.ttf') format('truetype'), url('../fonts/HelveticaNeueCyr-Black.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+
+$maxWidth: 1366;
+@mixin adaptiv-font($pcSize, $mobSize) {
+ $addSize: $pcSize - $mobSize;
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+.ibg{
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		img{display: none};
+}
+
+////////////////////////////////////////////////////////////////
+html,body{
+	height: 100%;
+	font-family: HelveticaNeueCyr;
+}
+body.lock{
+	overflow: hidden;
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow: hidden;
+}
+.content{
+	flex: 1 1 auto;
+}
+
+
+//===============  HEADER
+
+.header {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	&:before{
+		content: '';
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #191919;
+	}
+	&__wrap {
+		position: relative;
+		height: 99px;
+		display: flex;
+		justify-content:space-around;
+		align-items:center;
+	}
+	&__body {
+		display: flex;
+		position: relative;
+		z-index: 1;
+	}
+	&__logo {
+		flex: 0 1 143px;
+		& img{
+			max-width: 100%;
+		}
+	}
+	&__burger {
+		display: none;
+	}
+	&__menu {
+	}
+	&__list {
+		display: flex;
+		position: relative;
+		z-index: 1;
+	}
+	&__link {
+		position: relative;
+		margin: 0 18px;
+		font-size: 16px;
+		letter-spacing: 0.01em;
+			&:hover:after{
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			left: 0;
+			bottom: -3px;
+			background-color: #fcef48;
+		}
+		&:first-child{
+			margin: 0 18px 0 0;
+		}
+		&:last-child{
+			margin: 0 0 0 18px;
+		}
+		& a {
+			color: #fff;
+		}
+	}
+	@media (max-width: 960px) {
+		.header__wrap{
+			height: 60px;
+		}
+		.header__body{
+			flex: 0 1 33.333%;
+		}
+		.header__logo{
+			flex: 0 1 120px;
+		}
+		.header__burger{
+			display: block;
+			position: relative;
+			z-index: 1;
+			order: 3;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 20px;
+			& span{
+				position: relative;
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: #fcef48;
+				transition: all 0.3s ease 0s;
+			}
+			&:before{
+				content:'';
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 2px;
+				top: 10px;
+				background-color: #fcef48;
+				transition: all 0.3s ease 0s;
+			}
+			&:after{
+				content:'';
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 2px;
+				top: 14px;
+				background-color: #fcef48;
+				transition: all 0.3s ease 0s;
+			}
+		}
+		.header__burger.active span{
+			transform: rotate(135deg);
+			top: 8px;
+		}
+		.header__burger.active:before{
+			transform: scale(0);
+		}
+		.header__burger.active:after{
+			transform: rotate(-135deg);
+			top: 6.5px;
+		}
+		.header__menu{
+			position: fixed;
+			overflow: auto;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0.9;
+			transition: all 0.5s ease 0s;
+		}
+		.header__menu.active{
+			top: 0;
+		}
+		.header__list{
+			display: block;
+			margin: 90px 0 0 0;
+		}
+		.header__link{
+			margin: 0 0 30px 0;
+			font-size: 30px;
+			text-align: center;
+			&:hover:after{
+				display: none;
+			}
+		}
+		.header__adress{
+			margin: 0 0 8px 0;
+		}
+	}
+	@media (max-width: 440px) {
+		.header__wrap{
+			height: 50px;
+		}
+		.header__logo{
+			flex: 0 1 90px;
+		}
+		.header__contacts{
+			text-align: center;
+		}
+		.header__adress{
+			font-size: 14px;
+			margin: 0 0 5px 0;
+		}
+		.header__phone{
+			font-size: 14px;
+		}
+	}
+	@media (max-width: 355px) {
+		.header__adress{
+		font-size: 12px;
+		margin: 0 0 3px 0;
+		}
+		.header__phone{
+		font-size: 12px;
+		}
+	}
+	&__contacts {
+		position: relative;
+		z-index: 1;
+	}
+	&__adress {
+		margin: 0 0 13px 0;
+		text-align: right;
+		font-size: 16px;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__phone {
+		background: url(../img/phones/01_g.png) left no-repeat;
+		padding: 0 0 0 23px;
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		color: #ffff68;
+	}
+}
+.container {
+	max-width: 1350px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+//============  SLIDER  ===================
+
+.slider {
+	min-height: 100vh;
+	display: flex;
+	position: relative;
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	.slick-arrow{
+		font-size: 0;
+	}
+	@media (max-width: 768px) {
+		
+	}
+}
+.slick-list {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.slick-track{
+		display: flex;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+}
+.slick-slide{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+
+//==========  MAIN
+
+.main {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	padding: 189px 0 0 110px;
+	&__wrap {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__column {
+	}
+	&__title {
+		max-width: 500px;
+		font-family: Montserrat;
+		font-size: 36px;
+		line-height: 48px;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__subtitle {
+		position: relative;
+		max-width: 440px;
+		margin: 39px 0 0 0;
+		font-size: 16px;
+		line-height: 23px;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__button {
+		position: relative;
+		top: 39px;
+		&:hover{
+			top: 43px;
+			transition: all 0.3s ease 0s;
+		}
+	}
+	&__items {
+		margin: 51px 0 0 0;
+	}
+	&__item {
+		margin: 20px 0 0 0;
+	}
+	&__link {
+	}
+}
+.btn {
+		transition: all 0.3s ease 0s;
+		width: 149px;
+		box-shadow: 5px 5px 0px 0px #fff;
+		&:hover{
+			transition: all 0.3s ease 0s;
+			box-shadow: 0px 0px 0px #fff;
+		}
+	& a{
+		transition: all 0.3s ease 0s;
+		display: block;
+		width: 149px;
+		text-align: center;
+		font-size: 17px;
+		line-height: 44px;
+		font-weight: 900;
+		letter-spacing: 0.01em;
+		color: #000;
+		background-color:#ffff68;
+		&:hover{
+			transition: all 0.3s ease 0.11s;
+
+		}
+	}
+}
+.container-1{
+	max-width: 1035px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+@media (max-width: 1170px) {
+	.main{
+		padding: 150px 20px 0 20px;
+	}
+}
+@media (max-width: 960px) {
+	.main{
+		padding: 106px 20px 0 20px;
+	}
+}
+
+//=======================  CARDS  =====================
+
+.cards {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	bottom: 60px;
+	&__wrapper {
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		flex-wrap:wrap;
+		margin: 0 -20px;
+	}
+	&__column {
+		flex: 0 1 33.333%;
+		padding: 0 20px;
+	}
+	&__card {
+		margin: 10px 0;
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		width: 350px;
+		height: 116px;
+		border: 2px solid #fff;
+		border-radius: 3px;
+	}
+	&__image {}
+	&__body {
+		width: 250px;
+		margin: 0 0 0 27px;
+	}
+	&__title {
+		margin: 0 0 15px 0;
+		font-size: 18px;
+		font-weight: 900;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__subtitle {
+		font-size: 15px;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+		line-height: 21px;
+	}
+}
+.container-2{
+	max-width: 1171px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+@media (max-width: 1170px) {
+	.cards{
+		bottom: 20px;
+	}
+}
+@media (max-width: 779px) {
+	.cards__card{
+		height: 96px;
+	}
+}
