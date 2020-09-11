@@ -514,9 +514,12 @@ body.lock{
 	}
 }
 @media (max-width: 493px) {
+	.cards{
+		margin: 30px 0 0 0;
+	}
 	.cards__card{
 		height: 75px;
-		width: 290px;
+		width: 250px;
 	}
 	.cards__body{
 		margin: 0 0 0 17px;
@@ -525,7 +528,7 @@ body.lock{
 		font-size: 16px;
 	}
 	.cards__subtitle{
-		margin: 3.5px 0 0 0;
+		margin: 4px 0 0 0;
 		font-size: 14px;
 		line-height: 15px;
 	}
@@ -547,12 +550,17 @@ body.lock{
 			width: 120px;
 		}
 	}
-	.cards{
-		margin: 70px 0 0 0;
-	}
 }
 @media (max-width: 412px) {
 	.main{
 		top: 65px;
+	}
+}
+@media (max-width: 347px) {
+	.cards{
+		margin: 15px 0 0 0;
+	}
+	.cards__card{
+		margin: 5px 0 0 0;
 	}
 }
