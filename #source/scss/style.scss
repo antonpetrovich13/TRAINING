@@ -67,8 +67,16 @@ html,body{
 	display: flex;
 	flex-direction:column;
 }
+.container{
+	max-width: 1127px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
 
 //===========================================================================================
+
+
+
 
 // <MAINBLOCK> ===============================================================================
 
@@ -110,3 +118,93 @@ html,body{
 	overflow: hidden;
 	position: relative;
 }
+
+// <HEADER> ==========================================================================
+
+.header {
+	background-color: #191919;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 99px;
+		width: 100%;
+	}
+	&__logo{
+		display: flex;
+	}
+	&__logotype {
+		flex: 0 1 143px;
+		& img{
+			max-width: 100%;
+		}
+	}
+	&__body {
+	}
+	&__burger {}
+	&__menu {
+		display: flex;
+		& li{
+			margin: 0 16px;
+			&:first-child{
+				margin: 0 16px 0 0;
+			}
+			&:last-child{
+				margin: 0 0 0 16px;
+			}
+		}
+	}
+	&__link {
+		position: relative;
+		font-size: 16px;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+		&:hover{
+			&:after{
+				content: '';
+				display: block;
+				position: absolute;
+				bottom:-7px;
+				height: 1px;
+				width: 100%;
+				background-color: #fcef48;
+				animation-name: run;
+				animation-duration: 0.4s;
+			}
+		}
+	}
+	@keyframes run{
+		0%{
+			width: 0%;
+		}
+		100%{
+			width: 100%;
+		}
+	}
+	&__contacts {
+	}
+	&__adress {
+		font-size: 16px;
+		letter-spacing: 0.01em;
+		text-align: right;
+		& a{
+			color: #ffffff;
+		}
+	}
+	&__phone {
+		margin: 13px 0 0 0;
+		background: url(../img/phones/01_g.png) left no-repeat;
+		padding: 0 0 0 25px;
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		& a{
+			color: #ffff68;
+		}
+	}
+}
+
+
