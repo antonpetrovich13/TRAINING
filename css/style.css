@@ -133,6 +133,10 @@ html, body {
   font-family: 'HelveticaNeueCyr';
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -200,7 +204,7 @@ html, body {
 .header {
   background-color: #191919;
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   width: 100%;
 }
 
@@ -218,13 +222,28 @@ html, body {
   width: 100%;
 }
 
+.header__row:before {
+  content: '';
+  width: 100%;
+  height: 99px;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: #191919;
+}
+
 .header__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+  z-index: 4;
 }
 
 .header__logotype {
+  position: relative;
+  z-index: 4;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 143px;
   flex: 0 1 143px;
@@ -234,7 +253,13 @@ html, body {
   max-width: 100%;
 }
 
+.header__burger {
+  display: none;
+}
+
 .header__menu {
+  position: relative;
+  z-index: 4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,6 +316,11 @@ html, body {
   }
 }
 
+.header__contacts {
+  position: relative;
+  z-index: 4;
+}
+
 .header__adress {
   font-size: 16px;
   letter-spacing: 0.01em;
@@ -312,4 +342,156 @@ html, body {
 
 .header__phone a {
   color: #ffff68;
+}
+
+@media (max-width: 1000px) {
+  .header__row {
+    height: 70px;
+  }
+  .header__row:before {
+    height: 70px;
+  }
+  .header__logotype {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 120px;
+    flex: 0 1 120px;
+  }
+  .header__body {
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    overflow: auto;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+  .header__body.active {
+    top: 0;
+  }
+  .header__burger {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 20px;
+    z-index: 5;
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+  .header__burger:before {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #ffff68;
+  }
+  .header__burger span {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #ffff68;
+  }
+  .header__burger:after {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #ffff68;
+  }
+  .header__burger.active:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 8px;
+  }
+  .header__burger.active span {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  .header__burger.active:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 8px;
+  }
+  .header__menu {
+    z-index: 1;
+    margin: 110px 0 0 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .header__menu li {
+    margin: 0 !important;
+    padding: 0 0 30px 0;
+  }
+  .header__link {
+    font-size: 30px;
+  }
+  .header__link:hover:after {
+    display: none;
+  }
+  .header__phone {
+    margin: 7px 0 0 0;
+  }
+}
+
+@media (max-width: 530px) {
+  .header__row {
+    height: 50px;
+  }
+  .header__row:before {
+    height: 50px;
+  }
+  .header__logotype {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 90px;
+    flex: 0 1 90px;
+  }
+  .header__menu {
+    margin: 80px 0 0 0;
+  }
+  .header__adress {
+    font-size: 14px;
+  }
+  .header__phone {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header__adress {
+    font-size: 13px;
+  }
+  .header__phone {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+  }
 }

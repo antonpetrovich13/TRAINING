@@ -63,6 +63,9 @@ html,body{
 	height: 100%;
 	font-family: 'HelveticaNeueCyr'
 }
+body.lock{
+	overflow: hidden;
+}
 .page {
 	display: flex;
 	flex-direction:column;
@@ -124,7 +127,7 @@ html,body{
 .header {
 	background-color: #191919;
 	position: fixed;
-	z-index: 2;
+	z-index: 100;
 	width: 100%;
 	&__row {
 		display: flex;
@@ -132,11 +135,25 @@ html,body{
 		justify-content: space-between;
 		height: 99px;
 		width: 100%;
+		&:before{
+			content: '';
+			width: 100%;
+			height: 99px;
+			position: fixed;
+			z-index: 3;
+			top: 0;
+			left: 0;
+			background-color: #191919;
+		}
 	}
 	&__logo{
 		display: flex;
+		position: relative;
+		z-index: 4;
 	}
 	&__logotype {
+		position: relative;
+		z-index: 4;
 		flex: 0 1 143px;
 		& img{
 			max-width: 100%;
@@ -144,8 +161,12 @@ html,body{
 	}
 	&__body {
 	}
-	&__burger {}
+	&__burger {
+		display: none;
+	}
 	&__menu {
+		position: relative;
+		z-index: 4;
 		display: flex;
 		& li{
 			margin: 0 16px;
@@ -185,6 +206,8 @@ html,body{
 		}
 	}
 	&__contacts {
+		position: relative;
+		z-index: 4;
 	}
 	&__adress {
 		font-size: 16px;
@@ -203,6 +226,136 @@ html,body{
 		letter-spacing: 0.01em;
 		& a{
 			color: #ffff68;
+		}
+	}
+	@media (max-width: 1000px) {
+		&__row{
+			height: 70px;
+			&:before{
+				height: 70px;
+			}
+		}
+		&__logotype{
+			flex: 0 1 120px;
+		}
+		&__body{
+			transition: all 0.5s ease 0s;
+			overflow: auto;
+			position: fixed;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			&:before{
+			}
+		}
+		&__body.active{
+			top: 0;
+		}
+		&__burger{
+			display: block;
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 20px;
+			z-index: 5;
+			order:3;
+			&:before{
+				transition: all 0.3s ease;
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 1.5px;
+				background-color: #ffff68;
+			}
+			& span{
+				transition: all 0.3s ease;
+				display: block;
+				position: absolute;
+				top: 8px;
+				left: 0;
+				width: 100%;
+				height: 1.5px;
+				background-color: #ffff68;
+			}
+			&:after{
+				transition: all 0.3s ease;
+				content: '';
+				position: absolute;
+				top: 16px;
+				left: 0;
+				width: 100%;
+				height: 1.5px;
+				background-color: #ffff68;
+			}
+		}
+		&__burger.active:before{
+			transform:rotate(45deg);
+			top: 8px;
+		}
+		&__burger.active span{
+			transform:scale(0);
+		}
+		&__burger.active:after{
+			transform:rotate(-45deg);
+			top: 8px;
+		}
+		&__menu{
+			z-index: 1;
+			margin: 110px 0 0 0;
+			flex-direction:column;
+			align-items: center;
+			& li{
+				margin: 0 !important;
+				padding:  0 0 30px 0;
+			}
+		}
+		&__link{
+			font-size: 30px;
+			&:hover:after{
+				display: none;
+			}
+		}
+		&__contacts{
+		}
+		&__adress{
+		}
+		&__phone{
+			margin: 7px 0 0 0;
+		}
+	}
+	@media (max-width: 530px) {
+		&__row{
+			height: 50px;
+			&:before{
+				height: 50px;
+			}
+		}
+		&__logotype{
+			flex: 0 1 90px;
+		}
+		&__menu{
+			margin: 80px 0 0 0;
+		}
+		&__adress{
+			font-size: 14px;
+		}
+		&__phone{
+			margin: 5px 0 0 0;
+			font-size: 15px;
+		}
+	}
+	@media (max-width: 360px) {
+		&__adress{
+			font-size: 13px;
+		}
+		&__phone{
+			margin: 5px 0 0 0;
+			font-size: 13px;
 		}
 	}
 }
