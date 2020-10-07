@@ -371,10 +371,20 @@ body.lock {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.01em;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 
 .header__phone a {
   color: #ffff68;
+}
+
+.header__phone:hover {
+  text-shadow: 2px 2px 15px #ffff68;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media (max-width: 1000px) {
