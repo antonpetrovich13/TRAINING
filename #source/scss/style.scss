@@ -178,24 +178,30 @@ body.lock{
 			}
 		}
 	}
-	&__link {
+&__link {
 		position: relative;
 		font-size: 16px;
 		letter-spacing: 0.01em;
 		color: #ffffff;
-		&:hover{
 			&:after{
 				content: '';
 				display: block;
 				position: absolute;
+				visibility: hidden;
 				bottom:-7px;
 				height: 1px;
 				width: 100%;
 				background-color: #fcef48;
-				animation-name: run;
+				transition: all 0.4s ease 0s;
+				animation-name:unrun;
 				animation-duration: 0.4s;
 			}
-		}
+			&:hover:after{
+				visibility: visible;
+				transform:translateX(0%);
+				animation-name:run;
+				animation-duration: 0.4s;
+			}
 	}
 	@keyframes run{
 		0%{
@@ -203,6 +209,14 @@ body.lock{
 		}
 		100%{
 			width: 100%;
+		}
+	}
+	@keyframes unrun{
+		0%{
+			width: 100%;
+		}
+		100%{
+			width: 0%;
 		}
 	}
 	&__contacts {

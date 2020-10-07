@@ -284,14 +284,29 @@ body.lock {
   color: #ffffff;
 }
 
-.header__link:hover:after {
+.header__link:after {
   content: '';
   display: block;
   position: absolute;
+  visibility: hidden;
   bottom: -7px;
   height: 1px;
   width: 100%;
   background-color: #fcef48;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  -webkit-animation-name: unrun;
+  animation-name: unrun;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+}
+
+.header__link:hover:after {
+  visibility: visible;
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
   -webkit-animation-name: run;
   animation-name: run;
   -webkit-animation-duration: 0.4s;
@@ -313,6 +328,24 @@ body.lock {
   }
   100% {
     width: 100%;
+  }
+}
+
+@-webkit-keyframes unrun {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes unrun {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
   }
 }
 
