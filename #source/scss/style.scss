@@ -60,7 +60,7 @@ $maxWidth: 1366;
 	overflow: hidden;
 }
 html,body{
-	height: 100%;
+	height: 100vh;
 	font-family: 'HelveticaNeueCyr'
 }
 body.lock{
@@ -262,6 +262,7 @@ body.lock{
 			overflow: auto;
 			position: fixed;
 			top: -100%;
+			opacity: 0.92;
 			left: 0;
 			width: 100%;
 			height: 100%;
@@ -379,4 +380,145 @@ body.lock{
 	}
 }
 
+// <MAIN> ==========================================================================
 
+.main {
+	position: absolute;
+	width: 100%;
+	&__wrapper {
+		padding: 170px 0 100px 0;
+		display: flex;
+		flex-direction:column;
+	}
+	&__floor {
+		&_c{
+			margin: 13% 0 0 0;
+		}
+	}
+	&__info {}
+	&__cards {
+	}
+}
+
+.info {
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__column {}
+	&__title {
+		font-family: Montserrat;
+		font-size: 36px;
+		line-height: 48px;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__subtitle {
+		margin: 28px 0;
+		max-width: 435px;
+		font-size: 16px;
+		line-height: 23px;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__button {
+	}
+	&__links {
+		margin: 60px 0 0 0;
+	}
+	&__link {
+		margin: 20px 0;
+		display: block;
+		transition: all 0.5s ease 0s;
+		&:first-child{
+			margin: 0px 0 20px 0;
+		}
+		&:last-child{
+			margin: 20px 0 0 0;
+		}
+		&:hover{
+			opacity: 0.6;
+			transform:rotate(360deg);
+		}
+	}
+}
+.btn {
+		position: relative;
+		display: block;
+		text-align: center;
+		width: 149px;
+		background-color: #fcef48;
+		font-size: 17px;
+		line-height: 48px;
+		font-weight: 900;
+		letter-spacing: 0.01em;
+		color: #202020;
+		transition: all 0.3s ease 0s;
+		& p{
+			position: relative;
+			z-index: 1;
+		}
+		& span{
+			transition: all 0.3s ease 0s;
+			position: absolute;
+			transform:scale(0);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #202020;
+		}
+		&:hover{
+			color: #fcef48;
+		}
+		&:hover span{
+			transform:scale(1);
+		}
+}
+.cards {
+	&__wrapper {
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		flex-wrap:wrap;
+		margin:  0 -17px;
+	}
+	&__column {
+		padding: 0 15px;
+		flex: 0 1 33.333%;
+	}
+	&__card {
+	}
+	&__wrap {
+		width: 350px;
+		height: 116px;
+		padding: 0 20px;
+		border: 2px solid #fff;
+		display: flex;
+		align-items: center;
+	}
+	&__row {
+		&_b{
+			margin:0 0 0 21px;
+		}
+	}
+	&__title {
+		font-size: 18px;
+		font-weight: 900;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+	&__subtitle {
+		margin: 7px 0 0 0;
+		max-width: 250px;
+		font-size: 15px;
+		line-height: 21px;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		color: #ffffff;
+	}
+}
